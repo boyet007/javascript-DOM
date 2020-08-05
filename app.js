@@ -70,13 +70,13 @@ h2.addEventListener('click', function(e) {
 });
 
 
-var btns = document.querySelectorAll('#book-list .delete');
-Array.from(btns).forEach(function(btn) {
-    btn.addEventListener('click', function(e) {
-        const li = e.target.parentElement;
-        li.parentNode.removeChild(li);
-    });
-});
+// var btns = document.querySelectorAll('#book-list .delete');
+// Array.from(btns).forEach(function(btn) {
+//     btn.addEventListener('click', function(e) {
+//         const li = e.target.parentElement;
+//         li.parentNode.removeChild(li);
+//     });
+// });
 
 const link = document.querySelector('#page-banner a');
 
@@ -84,4 +84,26 @@ link.addEventListener('click', function(e){
     e.preventDefault();
     console.log('navigation to', e.target.textContent , ' was prevented'); 
 });
+
+//event bubbling
+const list = document.querySelector('#book-list ul');
+list.addEventListener('click', function(e){
+    if(e.target.className === 'delete') {
+        const li = e.target.parentElement;
+        li.parentElement.removeChild(li);
+    }
+});
+
+
+//add book-list
+const addForm = document.forms('add-book');
+addForm.addEventListener('submit', function(){
+    e.preventDefault();
+    debugger;
+    const value = addForm.querySelector('input[type="text"]').value;
+
+
+});
+
+
 
