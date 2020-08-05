@@ -17,5 +17,17 @@ var books = document.querySelector('#book-list li .name');
 //semua buku
 books = document.querySelectorAll('#book-list li .name');
 Array.from(books).forEach(function(book) {
-    console.log(book);
+    //ganti semua judul dengan text
+    //book.textContent = 'Text';
+
+    //tambahkan judul dengan text
+    book.textContent += '{book - title)'
 });
+
+const bookList = document.querySelector('#book-list');
+//isi dari html child
+//console.log(bookList.innerHTML);
+//bookList.innerHTML = '<h2>Books and more books...</h2>';
+
+//tambahkan booklist
+bookList.innerHTML += '<p>This is how you Add Html</p>';
