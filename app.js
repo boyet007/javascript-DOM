@@ -95,7 +95,7 @@
 // });
 
 
-//add book-list
+
 const list = document.querySelector('#book-list ul');
 const addForm = document.forms['add-book'];
 
@@ -107,6 +107,7 @@ list.addEventListener('click', (e) => {
     }
   });
 
+//add book-list
 addForm.addEventListener('submit', function(e){
     e.preventDefault();
     const value = addForm.querySelector('input[type="text"]').value;
@@ -139,6 +140,21 @@ hideBox.addEventListener('change', function(e) {
         list.style.display = 'initial';
     }
 })
+
+//filter books
+const searchBar = document.forms['search-books'].querySelector('input');
+searchBar.addEventListener('keyup', function(e) {
+    const term = e.target.value.toLowerCase();
+    const books = list.getElementsByTagName('li');
+    Array.from(books).forEach(function(book) {
+        const title = book.firstElementChild.textContent;
+        if(title.toLowerCase().indexOf(term) !== -1) {
+            book.style.display = 'block';
+        } else {
+            book.style.display = 'none';
+        }
+    });
+});
 
 
 
