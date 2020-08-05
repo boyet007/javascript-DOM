@@ -31,3 +31,14 @@ const bookList = document.querySelector('#book-list');
 
 //tambahkan booklist
 bookList.innerHTML += '<p>This is how you Add Html</p>';
+
+//nodes
+const banner = document.querySelector('#page-banner');
+
+console.log('#page-banner node type is : ', banner.nodeType);
+console.log('#page-banner node name is : ', banner.nodeName);
+console.log('#page-banner has child nodes : ', banner.hasChildNodes());
+
+const clonedBanner = banner.cloneNode(false);
+//kalo true semua isi children diclone, kalo false hanya  element saja
+console.log(clonedBanner);
